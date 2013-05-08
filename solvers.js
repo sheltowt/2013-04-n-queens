@@ -24,16 +24,10 @@ window.findNRooksSolution = function(n){
 
 window.countNRooksSolutions = function(n){
   var number = n;
-  var makeEmptyMatrix = function(n){
-    return _(_.range(n)).map(function(){
-      return _(_.range(n)).map(function(){
-        return 0;
-      });
-    });
-  };
-  var board = makeEmptyMatrix(number);
-  var solutionCount = undefined; //fixme
-
+  var solutionCount = 1; //fixme
+    for (var i = 2; i <= number; i++){
+	    solutionCount = solutionCount * i;
+    }
   console.log('Number of solutions for ' + n + ' rooks:', solutionCount);
   return solutionCount;
 };

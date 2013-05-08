@@ -104,6 +104,18 @@
     },
 
     hasMajorDiagonalConflictAt: function(majorDiagonalColumnIndexAtFirstRow){
+      var board = this.rows()
+      var count = 0;
+      
+      for(var i = 0; i < rows.length; i++){
+	      for(var j = 0; j < rows.length; j++){
+		    var index = this._getFirstRowColumnIndexForMajorDiagnolOn(r,c);  
+	      }
+	      
+	      
+	      count ++
+      }
+      
       console.log(majorDiagonalColumnIndexAtFirstRow);
       
       return false; // fixme
