@@ -3,13 +3,35 @@
 // (There are also optimizations that will allow you to skip a lot of the dead search space)
 
 window.findNRooksSolution = function(n){
-  var solution = undefined; //fixme
-
+  var number = n;
+  var makeEmptyMatrix = function(n){
+    return _(_.range(n)).map(function(){
+      return _(_.range(n)).map(function(){
+        return 0;
+      });
+    });
+  };
+  var solution = makeEmptyMatrix(number);
+  var incrementOver = 0;
+  for(var i = 0; i < number; i++){
+	  solution[i][incrementOver] = 1;
+	  incrementOver++;
+  }
   console.log('Single solution for ' + n + ' rooks:', solution);
+  displayBoard(solution)
   return solution;
 };
 
 window.countNRooksSolutions = function(n){
+  var number = n;
+  var makeEmptyMatrix = function(n){
+    return _(_.range(n)).map(function(){
+      return _(_.range(n)).map(function(){
+        return 0;
+      });
+    });
+  };
+  var board = makeEmptyMatrix(number);
   var solutionCount = undefined; //fixme
 
   console.log('Number of solutions for ' + n + ' rooks:', solutionCount);
