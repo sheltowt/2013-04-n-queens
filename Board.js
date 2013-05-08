@@ -104,34 +104,52 @@
     },
 
     hasMajorDiagonalConflictAt: function(majorDiagonalColumnIndexAtFirstRow){
-      var board = this.rows()
+      var board = this.rows();
       var count = 0;
-      
-      for(var i = 0; i < rows.length; i++){
-	      for(var j = 0; j < rows.length; j++){
-		    var index = this._getFirstRowColumnIndexForMajorDiagnolOn(r,c);  
+      for(var i = 0; i < board.length; i++){
+	      for(var j = 0; j < board[i].length; j++){
+		    var index = this._getFirstRowColumnIndexForMajorDiagonalOn(i,j);  
+		    if(index=== majorDiagonalColumnIndexAtFirstRow && board[i][j]){
+		      count ++;
 	      }
-	      
-	      
-	      count ++
+	     }
       }
-      
-      console.log(majorDiagonalColumnIndexAtFirstRow);
-      
-      return false; // fixme
+      return count > 1; // fixme
     },
 
     hasAnyMajorDiagonalConflicts: function(){
-      return false; // fixme
+      var rows = this.rows();
+      for(var i = (-rows.length+2); i < rows.length-2; i++){
+	      if(this.hasMajorDiagonalConflictAt(i)){
+		      return true;
+	    }
+      }
+      return false;
     },
 
     hasMinorDiagonalConflictAt: function(minorDiagonalColumnIndexAtFirstRow){
-      return false; // fixme
+     var board = this.rows();
+      var count = 0;
+      for(var i = 0; i < rows.length; i++){
+	      for(var j = 0; j < rows[i].length; j++){
+		    var index = this._getFirstRowColumnIndexForMajorDiagnolOn(r,c);  
+		    if(index=== majorDiagnonalColumnIndexAtFirstRow && row[i][j]){
+		      count ++;
+	      }
+	     } 
+      }
+      return count > 1; // fixme
     },
 
     hasAnyMinorDiagonalConflicts: function(){
-      return false; // fixme
-    }
+      var rows = this.rows();
+      for(var i = 1; i < rows.length+2; i++){
+	      if(this.hasMajorDiagonalConflictAt(i)){
+		      return true;
+	    }
+      }
+      return false;
+    },
 
   });
 
